@@ -1,0 +1,97 @@
+/* === Navbar Styles === */
+:root {
+  --primary-color: #6366F1;       /* Indigo */
+  --secondary-color: #10B981;     /* Emerald Green */
+  --accent-color: #A5B4FC;        /* Light Indigo */
+  --light-color: #F3F4F6;         /* Soft Gray */
+  --dark-color: #1F2937;          /* Charcoal */
+  --text-color: #1F2937;          /* Charcoal */
+  --text-light: #6B7280;          /* Muted Gray (Tailwind Slate-500) */
+  --error-color: #E53935;
+  --success-color: #10B981;
+}
+
+.footer {
+  background: linear-gradient(70deg, var(--primary-color), var(--dark-color));
+  color: #FAF9F6;
+  padding: 40px 20px 10px;
+  font-family: sans-serif;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  gap: 13vw;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: start;
+  justify-content: flex-start;
+}
+
+.footer-col h4 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #FAF9F6;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #FFD700;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.brand-desc {
+  opacity: 0.9;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 30px auto 20px;
+  max-width: 90%;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
