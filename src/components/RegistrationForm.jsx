@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import "../css/registrationForm.css";
 
-function RegistrationForm({selectedCategoryName, selectedCategoryEmojie, setOpenRegistrationForm, selectedTitle, selectedDateTime}) {
+function RegistrationForm({ selectedCategoryName, selectedCategoryEmojie, setOpenRegistrationForm, selectedTitle, selectedDateTime }) {
     const [isLoading, setIsLoading] = useState(false);
 
     const formik = useFormik({
@@ -22,7 +22,7 @@ function RegistrationForm({selectedCategoryName, selectedCategoryEmojie, setOpen
             try {
                 const data = { fullName: values.fullName, userEmail: values.userEmail, phone: values.phone, guestsCount: values.guestsCount, eventCategory: (selectedCategoryName + " " + selectedCategoryEmojie), eventTitle: selectedTitle, eventDateTime: selectedDateTime };
                 setIsLoading(true);
-                const response = await axios.post(`http://localhost:3012/register-customer`, data, {
+                const response = await axios.post(`${process.env.API_URL}/register-customer`, data, {
                     headers: {
                         "Content-Type": "application/json",
                     }
@@ -127,9 +127,9 @@ function RegistrationForm({selectedCategoryName, selectedCategoryEmojie, setOpen
                                 <button
                                     type="submit"
                                     className="register-btn"
-                                    disabled={!formik.isValid || !formik.dirty || formik.isSubmitting}
+                                    disabled={!formik.isValid || !formik.dirty || formik.isSubmitting || isLoading}
                                 >
-                                    {formik.isSubmitting ? (
+                                    {isLoading ? (
                                         <span className="submit-loading">
                                             <span className="spinner"></span>
                                             Processing...
@@ -138,7 +138,7 @@ function RegistrationForm({selectedCategoryName, selectedCategoryEmojie, setOpen
                                         "Register"
                                     )}
                                 </button>
-                             </div>
+                            </div>
                         </form>
                     </div>
                 </div>

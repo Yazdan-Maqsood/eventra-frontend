@@ -15,7 +15,7 @@ const EventCards = () => {
     const fetchCardsData = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get(`http://localhost:3012/get-events`, {
+            const response = await axios.get(`${process.env.API_URL}/get-events`, {
                 headers: {
                     "Content-Type": "application/json",
                 }
